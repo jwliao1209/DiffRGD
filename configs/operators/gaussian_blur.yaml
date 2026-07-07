@@ -1,0 +1,4 @@
+name: gaussian_blur
+operator:
+  kernel_size: 31
+  std: 3.0

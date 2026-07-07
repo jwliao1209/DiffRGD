@@ -1,0 +1,4 @@
+name: random_inpainting
+operator:
+  image_size: [256, 256]
+  prob_range: [0.3, 0.7]

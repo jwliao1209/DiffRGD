@@ -1,0 +1,3 @@
+name: denoising
+operator:
+  image_size: [256, 256]

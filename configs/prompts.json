@@ -1,0 +1,84 @@
+{
+  "prompts": [
+    {
+      "id": 1,
+      "prompt": "cute cat"
+    },
+    {
+      "id": 2,
+      "prompt": "tiny puppy"
+    },
+    {
+      "id": 3,
+      "prompt": "fluffy panda"
+    },
+    {
+      "id": 4,
+      "prompt": "baby rabbit"
+    },
+    {
+      "id": 5,
+      "prompt": "little fox"
+    },
+    {
+      "id": 6,
+      "prompt": "small hamster"
+    },
+    {
+      "id": 7,
+      "prompt": "baby penguin"
+    },
+    {
+      "id": 8,
+      "prompt": "sleepy koala"
+    },
+    {
+      "id": 9,
+      "prompt": "tiny squirrel"
+    },
+    {
+      "id": 10,
+      "prompt": "playful raccoon"
+    },
+    {
+      "id": 11,
+      "prompt": "round hedgehog"
+    },
+    {
+      "id": 12,
+      "prompt": "big-eyed owl"
+    },
+    {
+      "id": 13,
+      "prompt": "fluffy bear cub"
+    },
+    {
+      "id": 14,
+      "prompt": "baby elephant"
+    },
+    {
+      "id": 15,
+      "prompt": "striped tiger cub"
+    },
+    {
+      "id": 16,
+      "prompt": "small giraffe"
+    },
+    {
+      "id": 17,
+      "prompt": "yellow duckling"
+    },
+    {
+      "id": 18,
+      "prompt": "soft baby seal"
+    },
+    {
+      "id": 19,
+      "prompt": "gentle alpaca"
+    },
+    {
+      "id": 20,
+      "prompt": "happy dolphin"
+    }
+  ]
+}

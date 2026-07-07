@@ -1,0 +1,3 @@
+name: super_resolution
+operator:
+  size: [64, 64]

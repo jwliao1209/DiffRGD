@@ -1,0 +1,4 @@
+name: motion_blur
+operator:
+  kernel_size: [61, 61]
+  intensity: 0.5

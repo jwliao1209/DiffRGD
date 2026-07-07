@@ -1,0 +1,23 @@
+[project]
+name = "diffrgd"
+version = "1.0.0"
+description = "DiffRGD: An Inference-Time Diffusion Guidance Through Riemannian Gradient Descent (ECCV 2026)"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "accelerate>=1.9.0",
+    "diffusers>=0.34.0",
+    "gdown>=5.2.0",
+    "imageio[ffmpeg,pyav]>=2.37.0",
+    "kagglehub>=0.3.12",
+    "matplotlib>=3.10.3",
+    "numpy>=2.3.1",
+    "omegaconf>=2.3.0",
+    "pillow>=11.3.0",
+    "scipy>=1.16.0",
+    "torch>=2.7.1",
+    "torchmetrics[image]>=1.7.4",
+    "torchvision>=0.22.1",
+    "tqdm>=4.67.1",
+    "transformers>=4.53.2",
+]

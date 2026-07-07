@@ -1,0 +1,4 @@
+name: box_inpainting
+operator:
+  image_size: [256, 256]
+  mask_size: [128, 128]

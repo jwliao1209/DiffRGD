@@ -1,0 +1,36 @@
+#!/bin/bash
+# Image restoration on FFHQ with 100 DDIM steps (Table 2).
+# Usage: bash scripts/run_ffhq_t100.sh [num_samples]
+
+export CUDA_VISIBLE_DEVICES=0
+NUM_SAMPLES="${1:-100}"
+
+# DPS
+uv run run_inverse_problem.py -t random_inpainting -m dps -d ffhq --step_size 1  --eta 1 --num_inference_steps 100 --noise gaussian -n "$NUM_SAMPLES"
+uv run run_inverse_problem.py -t super_resolution  -m dps -d ffhq --step_size 1  --eta 1 --num_inference_steps 100 --noise gaussian -n "$NUM_SAMPLES"
+uv run run_inverse_problem.py -t gaussian_blur     -m dps -d ffhq --step_size 1  --eta 1 --num_inference_steps 100 --noise gaussian -n "$NUM_SAMPLES" 
+uv run run_inverse_problem.py -t motion_blur       -m dps -d ffhq --step_size 1  --eta 1 --num_inference_steps 100 --noise gaussian -n "$NUM_SAMPLES"
+
+# MPGD
+uv run run_inverse_problem.py -t random_inpainting -m mpgd -d ffhq --step_size 30  --eta 1 --num_inference_steps 100 --noise gaussian -n "$NUM_SAMPLES"
+uv run run_inverse_problem.py -t super_resolution  -m mpgd -d ffhq --step_size 30  --eta 1 --num_inference_steps 100 --noise gaussian -n "$NUM_SAMPLES"
+uv run run_inverse_problem.py -t gaussian_blur     -m mpgd -d ffhq --step_size 50  --eta 1 --num_inference_steps 100 --noise gaussian -n "$NUM_SAMPLES" 
+uv run run_inverse_problem.py -t motion_blur       -m mpgd -d ffhq --step_size 50  --eta 1 --num_inference_steps 100 --noise gaussian -n "$NUM_SAMPLES" 
+
+# DSG
+uv run run_inverse_problem.py -t random_inpainting -m dsg -d ffhq --step_size 0.2  --eta 1 --num_inference_steps 100 --noise gaussian -i 1 -n "$NUM_SAMPLES"
+uv run run_inverse_problem.py -t super_resolution  -m dsg -d ffhq --step_size 0.1  --eta 1 --num_inference_steps 100 --noise gaussian -i 2 -n "$NUM_SAMPLES"
+uv run run_inverse_problem.py -t gaussian_blur     -m dsg -d ffhq --step_size 0.1  --eta 1 --num_inference_steps 100 --noise gaussian -i 1 -n "$NUM_SAMPLES" 
+uv run run_inverse_problem.py -t motion_blur       -m dsg -d ffhq --step_size 0.1  --eta 1 --num_inference_steps 100 --noise gaussian -i 1 -n "$NUM_SAMPLES"
+
+# ADMMDiff
+uv run run_inverse_problem.py -t random_inpainting -m admmdiff -d ffhq --step_size 2.4 --rho 0.5 --num_inference_steps 100 --noise gaussian --inner_max_iter 10 -n "$NUM_SAMPLES"
+uv run run_inverse_problem.py -t super_resolution  -m admmdiff -d ffhq --step_size 2.4 --rho 0.5 --num_inference_steps 100 --noise gaussian --inner_max_iter 10 -n "$NUM_SAMPLES"
+uv run run_inverse_problem.py -t gaussian_blur     -m admmdiff -d ffhq --step_size 2.4 --rho 0.5 --num_inference_steps 100 --noise gaussian --inner_max_iter 10 -n "$NUM_SAMPLES"
+uv run run_inverse_problem.py -t motion_blur       -m admmdiff -d ffhq --step_size 2.4 --rho 0.5 --num_inference_steps 100 --noise gaussian --inner_max_iter 10 -n "$NUM_SAMPLES"
+
+# DiffRGD
+uv run run_inverse_problem.py -t random_inpainting -m diffrgd -d ffhq --step_size 5   -i 1 --eta 1 --num_inference_steps 100 --noise gaussian --inner_max_iter 3 -n "$NUM_SAMPLES"
+uv run run_inverse_problem.py -t super_resolution  -m diffrgd -d ffhq --step_size 5   -i 1 --eta 1 --num_inference_steps 100 --noise gaussian --inner_max_iter 3 -n "$NUM_SAMPLES"
+uv run run_inverse_problem.py -t gaussian_blur     -m diffrgd -d ffhq --step_size 7   -i 1 --eta 1 --num_inference_steps 100 --noise gaussian --inner_max_iter 3 -n "$NUM_SAMPLES"
+uv run run_inverse_problem.py -t motion_blur       -m diffrgd -d ffhq --step_size 2.5 -i 1 --eta 1 --num_inference_steps 100 --noise gaussian --inner_max_iter 3 -n "$NUM_SAMPLES"

@@ -1,0 +1,26 @@
+# Image restoration tasks
+DENOISING = "denoising"
+BOX_INPAINTING = "box_inpainting"
+RANDOM_INPAINTING = "random_inpainting"
+SUPER_RESOLUTION = "super_resolution"
+GAUSSIAN_BLUR = "gaussian_blur"
+MOTION_BLUR = "motion_blur"
+
+# File name keys shared by dataset generation and experiment scripts
+GT = "gt"
+MASK = "mask"
+KERNEL = "kernel"
+MEASUREMENT = "measurement"
+GAUSSIAN_MEASUREMENT = "gaussian_measurement"
+POISSON_MEASUREMENT = "poisson_measurement"
+RECONSTRUCTION = "reconstruction"
+GENERATION = "generation"
+REFERENCE = "reference"
+REF_COND = "ref_cond"
+GEN_COND = "gen_cond"
+REF_COLOR_COND = "ref_color_cond"
+GEN_COLOR_COND = "gen_color_cond"
+REF_OVERLAY = "ref_overlay"
+GEN_OVERLAY = "gen_overlay"
+
+OUTPUT_DIR = "outputs"
